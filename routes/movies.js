@@ -42,12 +42,12 @@ router
     : response.status(404).send({msg:"no matching movie found"})
 })
 //update movie by id - put
-router.put(async (request,response)=>{
+.put(async (request,response)=>{
   const {id} = request.params
   const data = request.body;
   const updateMovie = await updateMovieById(id, data);
-  const movie = await getMovieById(id)
-  response.send(movie)
+  const changedMovie = await getMovieById(id)
+  response.send(changedMovie)
 })
 
 export const moviesRouter = router;
